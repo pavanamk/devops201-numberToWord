@@ -1,3 +1,4 @@
+
 package com.mindtree.service;
 
 public class ConvertNumber {
@@ -29,6 +30,7 @@ public class ConvertNumber {
 				word += " " + digits[temp % 10];
 			}
 		}
+		System.out.println("Convereted successfully");
 		return word;
 	}
 
