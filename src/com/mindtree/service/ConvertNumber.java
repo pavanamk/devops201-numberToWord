@@ -29,7 +29,7 @@ public class ConvertNumber {
 			if ((number % 10) > 0) {
 				word += " " + digits[temp % 10];
 			}
-		}
+		} 
 
 		return word;
 	}
