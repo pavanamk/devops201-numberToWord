@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="jar" basedir="." name="NumberToWord">
-  <target name="compile">
-    <javac srcdir="src" destdir="build"/>
-  </target>
-  <target name="jar" depends="compile">
-    <jar destfile="num2word.jar"
+	<path id="class.path">
+		<pathelement location="bin" />
+	</path>
+	<target name="compile">
+		<javac srcdir="src" destdir="bin">
+			<classpath refid="class.path" />
+		</javac>
+	</target>
+	<target name="jar" depends="compile">
+		<jar destfile="num2word.jar"
          basedir="."
          includes="**/*.class">
-      <manifest>
-        <attribute name="Main-Class" value="com.mindtree.main.ConvertNumberMain" />
-      </manifest>
-    </jar>
-  </target>
+			<manifest>
+				<attribute name="Main-Class" value="com.mindtree.main.ConvertNumberMain" />
+			</manifest>
+		</jar>
+	</target>
 </project>
