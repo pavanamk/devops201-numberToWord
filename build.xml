@@ -16,7 +16,7 @@
 	</target>
 	<target name="jar" depends="compile">
 		<jar destfile="num2word.jar"
-         basedir="."
+         basedir="bin"
          includes="**/*.class">
 			<manifest>
 				<attribute name="Main-Class" value="com.mindtree.main.ConvertNumberMain" />
