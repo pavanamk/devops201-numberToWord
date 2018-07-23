@@ -3,7 +3,13 @@
 	<path id="class.path">
 		<pathelement location="bin" />
 	</path>
-	<target name="compile">
+	 <target name="makedir" >
+    		<mkdir dir="bin" />
+	</target>
+	 <target name="clean">
+    		<delete dir="bin" />
+  	</target>
+	<target name="compile" depends="clean, makedir">
 		<javac srcdir="src" destdir="bin">
 			<classpath refid="class.path" />
 		</javac>
