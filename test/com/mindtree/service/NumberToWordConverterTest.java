@@ -3,14 +3,14 @@
  */
 package com.mindtree.service;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 /**
  * @author Krithi
@@ -35,7 +35,7 @@ class NumberToWordConverterTest {
 			bufferedReader.close();
 
 		} catch (Exception e) {
-			fail(e);
+			fail(e.getMessage());
 		}
 
 	}
