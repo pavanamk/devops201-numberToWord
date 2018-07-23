@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="jar" basedir="." name="NumberToWord">
   <target name="compile">
-    <javac srcdir="src" destdir="."/>
+    <javac srcdir="src" destdir="build"/>
   </target>
   <target name="jar" depends="compile">
     <jar destfile="num2word.jar"
