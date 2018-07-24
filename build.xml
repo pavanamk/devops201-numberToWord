@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="jar" basedir="." name="NumberToWord" xmlns:jacoco="antlib:org.jacoco.ant">
-	<property name="jacoco.home" location="/var/jenkins_home/jacoco-jar/org.jacoco.ant/src"/>
+	<property name="jacoco.home" location="/var/jenkins_home/jacoco-jar/org.jacoco.ant/"/>
 	<property name="result.dir" location="./report"/>
 	<path id="class.path">
 		<pathelement location="bin" />
 		<pathelement location="lib/junit-4.12.jar"/>
 	</path>
-	<taskdef uri="antlib:org.jacoco.ant" resource="${jacoco.home}/org/jacoco/ant/antlib.xml">
+	<taskdef uri="antlib:org.jacoco.ant" resource="${jacoco.home}/src/org/jacoco/ant/antlib.xml">
 		<classpath path="{jacoco.home}/lib/jacocoant.jar"/>
 	</taskdef>
 	<target name="makedir" >
