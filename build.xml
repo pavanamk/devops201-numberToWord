@@ -6,7 +6,7 @@
 		<pathelement location="bin" />
 		<pathelement location="lib/junit-4.12.jar"/>
 	</path>
-	<taskdef uri="antlib:org.jacoco.ant" resource="${jacoco.home}/src/org/jacoco/ant/antlib.xml">
+	<taskdef uri="antlib:org.jacoco.ant" resource="${jacoco.home}/antlib.xml">
 		<classpath path="{jacoco.home}/lib/jacocoant.jar"/>
 	</taskdef>
 	<target name="makedir" >
