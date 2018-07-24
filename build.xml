@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="jar" basedir="." name="NumberToWord" xmlns:jacoco="antlib:org.jacoco.ant">
 	<property name="jacoco.home" location="/var/jenkins_home/jacoco-jar"/>
