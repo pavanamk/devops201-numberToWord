@@ -47,8 +47,8 @@
 					<fileset dir="target"/>
 				</classfiles>
 				<sourcefiles encoding="UTF-8">
-					<src path="src"/>
-					<src path="test"/>
+					<fileset dir="src"/>
+					<fileset dir="test"/>
 				</sourcefiles>
 			</structure>
 			<html destdir="${result.dir}"/>
