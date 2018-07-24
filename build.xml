@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="jar" basedir="." name="NumberToWord" xmlns:jacoco="antlib:org.jacoco.ant">
-	<property name="jacoco.home" location="/var/jenkins_home/jacoco-jar"/>
+	<property name="jacoco.home" location="/var/jenkins_home/jacoco-jar/org.jacoco.ant/src"/>
 	<property name="result.dir" location="./report"/>
 	<path id="class.path">
 		<pathelement location="bin" />
@@ -31,9 +31,12 @@
 	</target>
 	<target name="test" depends="compile">
 		<jacoco:coverage destfile="${result.dir}/exec">
-			<java classname="org.jacoco.examples.parser.Main" fork="true">
-				<classpath path="target"/>
-			</java>
+			<junit fork="true" forkmode="once">
+				<test name="org.jacoco.examples.HelloJaCoCoTest"/>
+				<classpath>
+				    <pathelement location="./target"/>
+				</classpath>
+			 </junit>
 		</jacoco:coverage>
 	</target>
 	<target name="report" depends="test">
