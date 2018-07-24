@@ -1,28 +1,62 @@
+
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="jar" basedir="." name="NumberToWord">
+<project default="jar" basedir="." name="NumberToWord" xmlns:jacoco="antlib:org.jacoco.ant">
+	<property name="jacoco.home" location="/var/jenkins_home/jacoco-jar"/>
+	<property name="result.dir" location="./report"/>
 	<path id="class.path">
 		<pathelement location="bin" />
 		<pathelement location="lib/junit-4.12.jar"/>
 	</path>
+	<taskdef uri="antlib:org.jacoco.ant" resource="${jacoco.home}/org/jacoco/ant/antlib.xml">
+		<classpath path="{jacoco.home}/lib/jacocoant.jar"/>
+	</taskdef>
 	<target name="makedir" >
 		<mkdir dir="bin" />
 		<mkdir dir="target" />
+		<mkdir dir="${result.dir}"/>
 	</target>
 	<target name="clean">
 		<delete dir="bin" />
 		<delete dir="target" />
+		<delete dir="${result.dir}"/>
 	</target>
 	<target name="compile" depends="clean, makedir">
-		<javac srcdir="src" destdir="bin">
+		<javac srcdir="src" destdir="bin" debug="true" >
 			<classpath refid="class.path" />
 		</javac>
-		<javac destdir="target">
+		<javac destdir="target" debug="true" >
 			<src path="src"/>
 			<src path="test"/>
 			<classpath refid="class.path" />
 		</javac>
 	</target>
-	<target name="jar" depends="compile">
+	<target name="test" depends="compile">
+		<jacoco:coverage destfile="${result.dir}/exec">
+			<java classname="org.jacoco.examples.parser.Main" fork="true">
+				<classpath path="target"/>
+			</java>
+		</jacoco:coverage>
+	</target>
+	<target name="report" depends="test">
+		<jacoco:report>
+			<executiondata>
+				<file file="${result.exec.file}"/>
+			</executiondata>
+			<structure name="JaCoCo Ant Example">
+				<classfiles>
+					<fileset dir="target"/>
+				</classfiles>
+				<sourcefiles encoding="UTF-8">
+					<src path="src"/>
+					<src path="test"/>
+				</sourcefiles>
+			</structure>
+			<html destdir="${result.dir}"/>
+			<csv destfile="${result.dir}/report.csv"/>
+			<xml destfile="${result.dir}/report.xml"/>
+		</jacoco:report>
+	</target>
+	<target name="jar" depends="clean, makedir, compile, test, report">
 		<jar destfile="num2word.jar"
          basedir="bin"
          includes="**/*.class">
