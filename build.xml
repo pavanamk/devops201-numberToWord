@@ -6,9 +6,6 @@
 		<pathelement location="bin" />
 		<pathelement location="lib/junit-4.12.jar"/>
 	</path>
-	<taskdef uri="antlib:org.jacoco.ant" resource="${jacoco.home}/antlib.xml">
-		<classpath path="{jacoco.home}/lib/jacocoant.jar"/>
-	</taskdef>
 	<target name="makedir" >
 		<mkdir dir="bin" />
 		<mkdir dir="target" />
@@ -35,7 +32,9 @@
 				<test name="org.jacoco.examples.HelloJaCoCoTest"/>
 				<classpath>
 				    <pathelement location="./target"/>
+				    <pathelement location="lib/junit-4.12.jar"/>
 				</classpath>
+				
 			 </junit>
 		</jacoco:coverage>
 	</target>
