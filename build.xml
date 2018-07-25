@@ -29,7 +29,7 @@
 	</target>
 	<target name="test" depends="compile">
 		<jacoco:coverage destfile="${result.dir}/exec">
-			<junit fork="true" forkmode="once" printsummary="on">
+			<junit fork="true" forkmode="once" printsummary="on"  showoutput="on">
 				<classpath>
 				    <pathelement location="./target"/>
 				    <pathelement location="lib/junit-4.12.jar"/>
