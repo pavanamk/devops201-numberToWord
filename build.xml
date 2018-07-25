@@ -25,6 +25,7 @@
 			<src path="test"/>
 			<classpath refid="class.path" />
 		</javac>
+		<copy file="test/input_file.txt" toDir="target"/>
 	</target>
 	<target name="test" depends="compile">
 		<jacoco:coverage destfile="${result.dir}/exec">
