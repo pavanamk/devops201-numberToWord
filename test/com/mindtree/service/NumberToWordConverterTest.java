@@ -25,7 +25,7 @@ class NumberToWordConverterTest {
 
 			String path=getClass().getClassLoader().getResource("").getPath();
 			System.out.println("Input file path:"+path);
-			File fin = new File(path.substring(1)+File.separator+"input_file.txt");
+			File fin = new File("../../.."+File.separator+"input_file.txt");
 			FileReader reader = new FileReader(fin);
 			BufferedReader bufferedReader = new BufferedReader(reader);
 			while ((input = bufferedReader.readLine()) != null) {
