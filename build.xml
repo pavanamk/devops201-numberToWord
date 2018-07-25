@@ -17,10 +17,10 @@
 		<delete dir="${result.dir}"/>
 	</target>
 	<target name="compile" depends="clean, makedir">
-		<javac srcdir="src" destdir="bin" debug="true" >
+		<javac srcdir="src" destdir="bin" debug="true" includeantruntime="false">
 			<classpath refid="class.path" />
 		</javac>
-		<javac destdir="target" debug="true" >
+		<javac destdir="target" debug="true" includeantruntime="false">
 			<src path="src"/>
 			<src path="test"/>
 			<classpath refid="class.path" />
@@ -33,6 +33,12 @@
 				    <pathelement location="./target"/>
 				    <pathelement location="lib/junit-4.12.jar"/>
 				</classpath>
+				 <formatter type="xml" />
+				<batchtest  fork="true" todir="${result.dir}">
+				      <fileset dir="test">
+					<include name="**/*Test.java" />
+				      </fileset>
+            			</batchtest>
 			 </junit>
 			
 		</jacoco:coverage>
