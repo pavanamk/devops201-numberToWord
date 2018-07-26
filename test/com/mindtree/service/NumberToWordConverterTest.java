@@ -17,7 +17,7 @@ import com.mindtree.service.ConvertNumber;
  * @author Krithi
  *
  */
-class NumberToWordConverterTest {
+public class NumberToWordConverterTest {
 
 	private Map<Integer,String> setup(){
 		Map<Integer,String> numbers=new HashMap<>();
@@ -1025,12 +1025,12 @@ class NumberToWordConverterTest {
 	}
 	
 	@Test
-	void testValidNumbers() {
+	public void testValidNumbers() {
 		try {
 			 Map<Integer,String> input = setup();
 			for (Integer number : input.keySet()) {
 				String output=ConvertNumber.getNumberToWord(number).trim();
-				assertTrue(input.get(number).equalsIgnoreCase(output));
+				assertTrue(input.get(number).trim().equalsIgnoreCase(output));
 			}
 
 		} catch (Exception e) {
@@ -1040,7 +1040,7 @@ class NumberToWordConverterTest {
 	}
 	
 	@Test
-	void testInvalidInputPositiveNumbers() {
+	public void testInvalidInputPositiveNumbers() {
 		try {
 			ConvertNumber.getNumberToWord(1000);
 			fail("Exception was expected");
@@ -1050,7 +1050,7 @@ class NumberToWordConverterTest {
 	}
 	
 	@Test
-	void testInvalidInputNegativeNumbers() {
+	public void testInvalidInputNegativeNumbers() {
 		try {
 			ConvertNumber.getNumberToWord(-1);
 			fail("Exception was expected");
