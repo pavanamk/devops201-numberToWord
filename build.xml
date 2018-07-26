@@ -49,7 +49,7 @@
 	<target name="report" depends="test">
 		<jacoco:report>
 			<executiondata>
-				<file file="${result.dir}/exec"/>
+				<file file="${result.dir}/exec/jacoco.exec"/>
 			</executiondata>
 			<structure name="JaCoCo Ant Example">
 				<classfiles>
