@@ -29,7 +29,7 @@
 		<copy file="test/input_file.txt" toDir="target"/>
 	</target>
 	<target name="test" depends="compile">
-		<jacoco:coverage destfile="${result.dir}/exec/jacoco.exec">
+		<jacoco:coverage destfile="${result.dir}/exec/jacoco.exec" excludes="**/*Main.class">
 			<junit fork="true" forkmode="once" printsummary="on"  showoutput="on">
 				<classpath>
 				    <pathelement location="./target"/>
