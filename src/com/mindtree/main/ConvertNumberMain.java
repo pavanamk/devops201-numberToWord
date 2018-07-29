@@ -35,10 +35,8 @@ public class ConvertNumberMain {
 			}
 			
 		} catch (NumberFormatException e) {
-			//e.printStackTrace();
 			System.err.println("Invalid argument passed. Please verify the arguments!!");
 		} catch (Exception e) {
-			//e.printStackTrace();
 			System.err.println("Error while converting number to word!!");
 		}
 		System.out.println("---Exiting number conversion to word---");
