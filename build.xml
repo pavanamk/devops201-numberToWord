@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="jar" basedir="." name="NumberToWord" xmlns:jacoco="antlib:org.jacoco.ant">
-	<property name="jacoco.home" location="/var/jenkins_home/jacoco-jar/org.jacoco.ant/"/>
+<project default="jar" basedir="." name="NumberToWord">
+
 	<property name="result.dir" location="./report"/>
 	<path id="class.path">
 		<pathelement location="bin" />
@@ -29,7 +29,7 @@
 		<copy file="test/input_file.txt" toDir="target"/>
 	</target>
 	<target name="test" depends="compile">
-		<jacoco:coverage destfile="${result.dir}/exec/jacoco.exec" excludes="**/*Main*">
+		
 			<junit fork="true" forkmode="once" printsummary="on"  showoutput="on">
 				<classpath>
 				    <pathelement location="./target"/>
@@ -44,28 +44,10 @@
             			</batchtest>
 			 </junit>
 			
-		</jacoco:coverage>
+		
 	</target>
-	<target name="report" depends="test">
-		<jacoco:report>
-			<executiondata>
-				<file file="${result.dir}/exec/jacoco.exec"/>
-			</executiondata>
-			<structure name="JaCoCo Ant Example">
-				<classfiles>
-					<fileset dir="target"/>
-				</classfiles>
-				<sourcefiles encoding="UTF-8">
-					<fileset dir="src"/>
-					<fileset dir="test"/>
-				</sourcefiles>
-			</structure>
-			<html destdir="${result.dir}"/>
-			<csv destfile="${result.dir}/report.csv"/>
-			<xml destfile="${result.dir}/report.xml"/>
-		</jacoco:report>
-	</target>
-	<target name="jar" depends="clean, makedir, compile, test, report">
+	
+	<target name="jar" depends="clean, makedir, compile, test">
 		<jar destfile="num2word.jar"
          basedir="bin"
          includes="**/*.class">
